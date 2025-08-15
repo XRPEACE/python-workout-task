@@ -1,0 +1,51 @@
+# Simple To-Do List Application
+
+# 1. An empty list
+todo_list = []
+
+print("Welcome to your To-Do List!")
+
+while True:
+    # 2. The menu
+    print("\nChoose an option:")
+    print("1. Add a task")
+    print("2. View all tasks")
+    print("3. Remove a task")
+    print("4. Quit")
+
+    choice = input("> ")
+
+    # 3. Adding a task
+    if choice == "1":
+        task = input("Enter the task you want to add: ")
+        if task:
+            todo_list.append(task)
+            print("Task added!")
+        else:
+            print("You must enter a valid task.")
+
+    # 4. Viewing all tasks
+    elif choice == "2":
+        if todo_list:
+            print("\nHere are your tasks:")
+            for i, task in enumerate(todo_list, start=1):
+                print(f"{i}. {task}")
+        else:
+            print("Your to-do list is empty!")
+
+    # 5. Removing a task
+    elif choice == "3":
+        task_to_remove = input("Enter the task you want to remove: ").strip()
+        if task_to_remove in todo_list:
+            todo_list.remove(task_to_remove)
+            print("Task removed!")
+        else:
+            print("Task not found!")
+
+    # 6. Quit
+    elif choice == "4":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid option, please choose 1, 2, 3, or 4.")
